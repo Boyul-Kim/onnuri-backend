@@ -1,0 +1,71 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "version": "1.0.0",
+      "title": "FitCommit",
+      "description": "FitCommit API",
+      "license": {
+        "name": "MIT",
+        "url": "https://opensource.org/licenses/MIT"
+      }
+    },
+    "host": "localhost:3000",
+    "basePath": "/",
+    "paths": {
+        "/user/info": {
+          "get": {
+            "description": "Creates a new user",
+            "produces": [
+              "application/json"
+            ],
+            "responses": {
+              "200": {
+                "description": "A new user object",
+                "schema": {
+                  "type": "object"
+                  
+                }
+              }
+            }
+          }
+        },
+        "/user/create":{
+            "post": {
+              "summary": "Creates a new user.",
+              "consumes": [
+                "application/json"
+              ],
+              "parameters": [
+                {
+                  "in": "body",
+                  "name": "user",
+                  "description": "The user to create.",
+                  "schema": {
+                    "type": "object",
+                    "required": [
+                      "userName"
+                    ],
+                    "properties": {
+                      "userName": {
+                        "type": "string"
+                      },
+                      "email": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              ]
+            }
+        }
+      },
+    "tags": [
+      {
+        "name": "Users",
+        "description": "API for users in the system"
+      }
+    ],
+    "schemes": ["http"],
+    "consumes": ["application/json"],
+    "produces": ["application/json"]
+  }
